@@ -6,7 +6,7 @@ html_doc = """
 <body>
 <p class="title"><b>The Chuikokching's story</b></p>
 <div id="wrap"><p class="story">Once upon a time there were three little sisters</p><p class="2">2</p><p class="3">3</p>
-<div id="post-12345">genshin impact 12345 <p class="4">4</p><p class="5">5</p></div>
+<div id="post-12345">genshin impact 12345 <p class="four">4</p><p class="5">5</p></div>
 </div>
 
 <div id="ckc">genshin impact ckc</div>
@@ -83,3 +83,11 @@ print(name)
 sel.xpath("//div[contains(@class,'info')]/p")
 sel.xpath("//div[@class='info big']/p[last()]").extract()
 sel.xpath("//p[@class='age']|//p[@class='name']") #同时获取两个tag
+
+
+print("------------------CSS-----------------")
+
+#CSS选择器
+sel = Selector(text=html_doc)
+tag = sel.css("#wrap ~ p ::text").extract() #.four::text
+print(tag[0])
