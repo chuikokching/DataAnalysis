@@ -8,7 +8,7 @@ class Person(Model):
     birthday = DateField(null=True)
 
     class Meta:
-        database = db # This model uses the "people.db" database.
+        database = db
         # table_name = "users" #自定义表名
 
 #数据的增、删、改、查
