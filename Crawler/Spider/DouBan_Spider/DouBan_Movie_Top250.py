@@ -95,5 +95,4 @@ if __name__ == '__main__':
     # get_movie_infos("https://movie.douban.com/subject/1292052/")
 
 # requests.post(url, json=json.dumps())
-
 # res = requests.get(url, headers=my_headers)
