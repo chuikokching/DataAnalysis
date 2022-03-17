@@ -1,68 +1,78 @@
 import requests
-import execjs
-from base64 import b64encode
-import hmac
-import hashlib
+from scrapy import Selector
+from signature import Signature
+import re
+import json
+from urllib.parse import urlparse, parse_qs
 
-app_secret_key = "bK9jk5dBEtjauy6gXL7vZCPJ1fOy076H"
-
-nonce_func = execjs.compile("""
-p = function(e) {
-        var t = e || null;
-        return null == t && (t = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (function(e) {
-            var t = 16 * Math.random() | 0;
-            return ("x" === e ? t : 3 & t | 8).toString(16)
-        }
-        ))),
-        t
+def get_last_urls():
+    urls=[]
+    #获取最终抓取的所有的二级分类url
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36"
     }
-""")
+    resp = requests.get("https://bbs.csdn.net/", headers=headers)
+    if resp.status_code != 200:
+        raise Exception("爬取失败, 被反爬了!!！ 再想想办法~")
+    sel = Selector(text=resp.text)
+    c_nodes = sel.css("div.el-tree-node .custom-tree-node")
+    for index , c_nodes in enumerate(c_nodes):
+        url = f"https://bizapi.csdn.net/community-cloud/v1/homepage/community/by/tag?deviceType=PC&tagId={index+1}"
+        sign = Signature()
+        code , resp_json = sign.get_html(url)
+        if code != 200:
+            raise Exception("被反爬了!!！")
+        if "data" in resp_json:
+            for item in resp_json["data"]:
+                url = "{}?category={}".format(item["url"],item["id"])
+                urls.append(url)
+        break
+    return urls
 
-print(nonce_func.call("p",))
-nonce_str = nonce_func.call("p",)
-
-#获取CSDN签名
-def gen_signature(nonce_str, url):
-    data = ""
-    data += "GET\n"
-    data += "application/json, text/plain, */*\n"
-    data += "\n\n\n"
-    data += "x-ca-key:203899271\n"
-    data += f"x-ca-nonce:{nonce_str}\n"
-    data += url
-    appsecret = app_secret_key.encode('utf-8')  # 秘钥
-    data = data.encode('utf-8')
-    sign = b64encode(hmac.new(appsecret, data, digestmod=hashlib.sha256).digest()).decode()
-    return sign
-
-
-#格式要和浏览器的一样 注意空格问题 非常重要！！！ 会影响Base64等算法运行结果
-template="""GET
-application/json, text/plain, */*
+def extract_topic(data_list):
 
 
 
-x-ca-key:203899271
-x-ca-nonce:a6844cb6-fcf8-43fd-8a52-8aa6baab11d1
-/community-cloud/v1/homepage/community/by/tag?deviceType=PC&tagId=5"""
+def parse_list(url):
+    next_page = 1
+    tabid = 0
+    total_pages = 0
+    page_size = 15
+    o = urlparse(url)
+    query_dict = parse_qs(o.query) #变成字典
+    cate_id = query_dict["category"][0]
 
-headers = {
-    'sec-ch-ua': '"Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"',
-    'x-ca-signature-headers': 'x-ca-key,x-ca-nonce',
-    'x-ca-signature': gen_signature(nonce_str, "/community-cloud/v1/homepage/community/by/tag?deviceType=PC&tagId=5"),
-    'x-ca-nonce': nonce_str,
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36',
-    'Accept': "application/json, text/plain, */*",
-    'x-ca-key': '203899271',
-    'Origin': 'https://bbs.csdn.net',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Accept-Language': 'zh-CN,zh;q=0.9',
-}
+    category_rsp = requests.get(url)
+    if category_rsp.status_code != 200:
+        raise Exception("被反爬了!!！")
+    data = re.search("window.__INITIAL_STATE__=(.*});</script>", category_rsp.text, re.IGNORECASE)
+    if data:
+        data = data.group(1)
+        data = json.loads(data)
+        total = data["pageData"]["data"]["baseInfo"]["page"]["total"]
+        tabid = data["pageData"]["data"]["baseInfo"]["page"]["defaultActiveTab"]
+
+        total_pages = total / page_size
+        if total % page_size > 0:
+            total_pages += 1
+
+        extract_topic(data["pageData"]["data"]["baseInfo"]["dataList"])
+        next_page += 1
+
+        #下一页
+        while next_page < total_pages:
+            # 注意这里的参数顺序，一定要按照ascii编码排序！！！！！
+            #https: // bizapi.csdn.net/community - cloud/v1/ community/listV2?page = 3 & pageSize = 20 & tabId = 1368 & noMore = false & communityId = 209 & type = 1 & viewType = 0
+            url = f"https://bizapi.csdn.net/community-cloud/v1/community/listV2?communityId={cate_id}&noMore=false&page={next_page}&pageSize={page_size}&tabId={tabid}&type=1&viewType=0"
+            signer = Signature()
+            code , resp_json = signer.get_html(url)
+            if code != 200:
+                raise Exception("被反爬了!!！")
+
+            #next_page +=1
 
 
-url = "https://bizapi.csdn.net/community-cloud/v1/homepage/community/by/tag?deviceType=PC&tagId=5"
-rsp = requests.get(url, headers=headers)
-print(rsp.status_code)
-print(rsp.text)
-
-print(gen_signature("a6844cb6-fcf8-43fd-8a52-8aa6baab11d1","/community-cloud/v1/homepage/community/by/tag?deviceType=PC&tagId=5"))
+if __name__ == '__main__':
+    urls = get_last_urls()
+    for url in urls:
+        parse_list(url)
