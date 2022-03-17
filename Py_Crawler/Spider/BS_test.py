@@ -27,7 +27,7 @@ for p in p_tags:
     print(p.string)
 
 div_tags = bs.findAll("div")
-print("{} {}".format(div_tags,len(div_tags)))
+print("{} : {}".format(div_tags,len(div_tags)))
 for div in div_tags:
     print(div.string)
 
@@ -68,7 +68,7 @@ sel = Selector(text=html_doc)
 tag_texts = sel.xpath("//div[@id='wrap']/div/p/text()").extract() #返回list
 if tag_texts:
     for i in tag_texts:
-        print(i)
+        print(i," P ")
 
 #能封装到数据库中 方便部署
 name_xpath = "//div[@id='wrap']/div/text()"
@@ -89,5 +89,5 @@ print("------------------CSS-----------------")
 
 #CSS选择器
 sel = Selector(text=html_doc)
-tag = sel.css("#wrap ~ p ::text").extract() #.four::text
-print(tag[0])
+tag = sel.css("#wrap p ::text").extract() #.four::text
+print(tag)
