@@ -87,3 +87,6 @@ def language_tj():
     # # print(chinese_fy)
     # data_lang_tj.loc['中国方言', 'tj'] = chinese_fy
     return data_lang_tj
+
+def averge_votes():
+    return pd.read_csv("movie.csv", usecols=['average', 'votes', 'title'])
