@@ -1,7 +1,11 @@
 import re
 
-
+test = "2020-4-3"
 info = "姓名:CKC2000 生日:1994-03-03 本科:2022-03-03"
+
+result = re.search("-(\d{1})-(\d{1})",test)
+print(result.group(1))
+print(result.group(2))
 
 #match()從字符串的最開始処匹配
 result = re.match(".*生日.*[:](\d{4}[-]\d{2}).*本科.*(\d{4}[-]\d{2})", info)
