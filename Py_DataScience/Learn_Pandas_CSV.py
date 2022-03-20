@@ -234,10 +234,10 @@ def data_stats_find_and_sort():
     print(data.loc[(data['average'] > 9.0) & (data['average'] < 9.5), ['title','average']])
 
 if __name__ == '__main__':
-    # pd_basis()
+    pd_basis()
     # data_read_create()
     # data_operation()
     # data_stats_date()
     # data_stats_genre()
-    #data_stats_average()
-    data_stats_find_and_sort()
+    # data_stats_average()
+    # data_stats_find_and_sort()
