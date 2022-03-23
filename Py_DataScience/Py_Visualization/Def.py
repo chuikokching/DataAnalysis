@@ -136,3 +136,14 @@ def genre_rates_tj(x):
                 if str(i).__contains__(g) and rate <= r < rate + 1:
                     data_genre_tj.loc[rate, g] += 1
     return data_genre_tj
+
+
+def rate_tj_by_year(year_list):
+    data = pd.read_csv("movie.csv",
+                       usecols=['title', 'average', 'release_date'])
+    data = data.set_index(pd.to_datetime(data['release_date']))
+    tj = []
+    # print(data.loc['2019']['average'])
+    for year in year_list:
+        tj.append(data[year]['average'].tolist())
+    return tj
