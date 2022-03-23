@@ -90,3 +90,49 @@ def language_tj():
 
 def averge_votes():
     return pd.read_csv("movie.csv", usecols=['average', 'votes', 'title'])
+
+def genre_tj():
+    # 读取数据
+    data = pd.read_csv("movie.csv")
+    # 获取所有类型：提取每一行的genre元素 -> 新的列表 genre_list -> 去重
+    data['genre'] = data['genre'].str.strip('[')
+    data['genre'] = data['genre'].str.strip(']')
+    data['genre'] = data['genre'].fillna(value='')
+    genre_list = []
+    for g in data['genre']:
+        g_list = g.split(', ')
+        for label in g_list:  # 123,2,3 -> 1,2,3
+            genre_list.append(label)
+    g_list = list(set(genre_list))
+    g_list.remove('')
+    # 统计每个类型标签对应的电影量/条数/频数
+    data_genre_tj = pd.DataFrame(np.zeros([len(g_list), 1]),
+                                 index=g_list, columns=['tj'])  # 2列：标签，统计值tj
+    for i in data['genre']:
+        for label in g_list:
+            if str(i).__contains__(label):
+                data_genre_tj.loc[label, 'tj'] += 1
+    return data_genre_tj
+
+
+def genre_rates_tj(x):
+    '''
+    :param x: 前X为
+    :return: 排名前X位的电影类型标签，对应的评分均值数据
+    '''
+    # 电影类型(x)：6个标签，电影数量最多的
+    # 评分数据(y)：2，3，4，5，6，7，8，9，10
+    # 电影数量(值）
+    genre_list = genre_tj().sort_values('tj', ascending=False) \
+        .head(x).index.tolist()
+    rate_list = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+    data = pd.read_csv("movie.csv", usecols=['genre', 'average'])
+    # 统计满足类型与评分区间的数据
+    data_genre_tj = pd.DataFrame(np.zeros([len(rate_list), len(genre_list)]),
+                                 index=rate_list, columns=genre_list)
+    for g in genre_list:  # 循环遍历6个变迁元素
+        for rate in rate_list:  # 循环遍历2-10评分数值
+            for i, r in zip(data['genre'], data['average']):
+                if str(i).__contains__(g) and rate <= r < rate + 1:
+                    data_genre_tj.loc[rate, g] += 1
+    return data_genre_tj
