@@ -69,15 +69,17 @@ Z.B.: **直播电商**:
 
 ***
 
+#### 用户维度的分析模型：
+
 ##### 生命周期模型：用户接触到离开产品的过程
 
-	- 导入期：引导用户完成注册
-	- 成长期：体验行为
-	- 成熟期：依赖行为
-	- 休眠期：一段时间未登录
-	- 流失期：长时间未登录
+- 导入期：引导用户完成注册
+- 成长期：体验行为
+- 成熟期：依赖行为
+- 休眠期：一段时间未登录
+- 流失期：长时间未登录
 
-##### AARRR模型：从产品营销角度，实现用户管理
+##### AARRR模型 [自上而下]：从产品营销角度，实现用户管理
 
 - Acquisition: 获取用户
 - Activation: 提高用户活跃度
@@ -101,7 +103,77 @@ Z.B.: **直播电商**:
 
 
 
+##### 5W2H：提问方式，快速掌握事件本质
+
+Z.B. ：创建电商用户画像
+
+- why: 运营活动，营销方案
+- what: 用户画像是什么
+- who: 年龄，性别，工作，婚姻
+- when: 时间，频次，金额
+- where: 分布地点，聚集性
+- How: 行为轨迹，支付方式
+- How much: 消费水平，价位
+
+##### 逻辑树：(决策树) 一步步拆解问题，得出解决方案
+
+- 确保考虑的完整性
+- 避免重复思考
+- 识别关键问题
+- 大问题分解小问题
+
+![image-20220407161637704](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220407161637704.png)
+
+![image-20220407162041754](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220407162041754.png)
+
+
+
+##### A/B测试模型：(多个方案时，使用分组测试来筛选和确定最终方案)
+
+![image-20220407161954940](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220407161954940.png)
+
+
+
+
+
+#### 战略分析模型: 
+
+##### SWOT: 帮助企业在商业环境中找准自身定位，并在次基础上制定决策
+
+- Strengths [内部有利因素]: SO增长型战略，ST多样化战略
+- Weakness [内部不利因素]: WT防御性战略，WO扭转型战略
+- Opportunity [外部有利因素]: 
+- Threat [外部不利因素]: 
+
+![image-20220407172059422](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220407172059422.png)
+
+![image-20220407172135151](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220407172135151.png)
+
+
+
+##### PEST:
+
+![image-20220407172336450](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220407172336450.png)
+
+##### 波特五力法：[更多可参考直播电商行业分析报告]
+
+![image-20220407172446094](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220407172446094.png)
+
+
+
+
+
+#### 数据分析指标体系：
+
+- 有机组成的统计指标
+- 依据行业，业务属性而定
+- 以AARRR模型为线索：拉新指标，活跃指标，留存指标，转行指标，传播指标 **[参考11.4数据指标体系]**
+
 
 
 ### 构建用户画像
+
+---
+
+
 
