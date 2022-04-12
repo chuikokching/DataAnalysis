@@ -277,7 +277,7 @@ Z.B. ：创建电商用户画像
 
 - R, F, M 指标将用户分成8类.
 - ![image-20220410185932303](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220410185932303.png)
-- RFM模型具体应用：[]
+- RFM模型具体应用实例：**[12.7RFM模型实例应用(K-Means).xlsx]** 
 
 
 
