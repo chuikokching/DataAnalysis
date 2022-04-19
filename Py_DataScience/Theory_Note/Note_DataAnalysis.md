@@ -334,7 +334,10 @@ Z.B. ：创建电商用户画像
       - 数据进行线性变换，数据落入0-1的区间
     - MinMaxScaler()
     - Fit_transform(matrix)
-  - 
+  - 特征数字化 (One-Hot)：定类数据 [性别，职位，学历] 转为数值型数据，参与运算
+    - 0和1 -> False ,True
+    - OneHotEncoder(matrix)
+  - 平均轮廓系数：确定最佳K值
 
 ​			
 
