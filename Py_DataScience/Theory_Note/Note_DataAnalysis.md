@@ -337,7 +337,9 @@ Z.B. ：创建电商用户画像
   - 特征数字化 (One-Hot)：定类数据 [性别，职位，学历] 转为数值型数据，参与运算
     - 0和1 -> False ,True
     - OneHotEncoder(matrix)
-  - 平均轮廓系数：确定最佳K值
+  - 平均轮廓系数：确定最佳K值 s(i) = (b(i) - a(i) ) / max{a(i),b(i)}
+    - KMeans.fit_predict()
+    - Metrics.silhouette_score()
 
 ​			
 
