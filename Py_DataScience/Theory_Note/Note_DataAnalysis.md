@@ -341,7 +341,13 @@ Z.B. ：创建电商用户画像
     - KMeans.fit_predict()
     - Metrics.silhouette_score()
   - 聚类结果分析：**[Ad_Performance.py]**
-  - 可视化：雷达图 **[Ad_Performance.py]**
+- 可视化：雷达图 **[Ad_Performance.py]**
+
+
+
+### 漏斗分析模型：
+
+- 
 
 ​			
 
