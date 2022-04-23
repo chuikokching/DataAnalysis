@@ -347,7 +347,41 @@ Z.B. ：创建电商用户画像
 
 ### 漏斗分析模型：
 
-- 
+- 描述序列的环节与环节, 以及**关键节点**的转化程度, 有上下关系, 有步骤关系的模型
+- 价值：***通过对转化的检测与优化提升转化效率***
+- 应用场景：
+  - 运营过程，效率：找到薄弱环节，针对性提升
+  - ![image-20220423114044966](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423114044966.png)
+
+- 识别用户行为特征
+- ![image-20220423122532194](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423122532194.png)
+- 分析关键节点转化效率 VS 用户体验
+- ![image-20220423122736565](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423122736565.png)
+- B.S.: 活动链接的邮件：
+  - 邮件发送成功数
+  - 邮件打开数
+  - 网页链接点击数
+  - 填写表单数
+  - 提交表单数
+  - 参与活动数
+
+- ***实例：用户下单流程***
+  - 点击率，流失率判断流量来源的质量是否过关
+  - ![image-20220423132404352](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423132404352.png)
+  - 落地页质量低的特点 :red_circle:
+  - ![image-20220423132725755](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423132725755.png)
+  - 转化率越高说明内容质量越好
+  - ![image-20220423132915994](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423132915994.png)
+  - 搜索点击率 > 200 才算健康   高级筛选(Tag)
+  - ![image-20220423133139335](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423133139335.png)
+  - ![image-20220423133445780](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423133445780.png)
+  - ![image-20220423133527195](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423133527195.png)
+  - ![image-20220423133602748](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423133602748.png)
+  - ![image-20220423133704862](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220423133704862.png)
+
+- 用EXCEL绘制漏斗模型图：**[13.18构建漏斗模型.xlsx]**
+
+
 
 ​			
 
