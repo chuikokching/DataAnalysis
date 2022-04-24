@@ -385,7 +385,24 @@ Z.B. ：创建电商用户画像
 
 ### 分析消费行为：
 
+- 用户画像：
+  - ![image-20220424171630679](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220424171630679.png)
+- ***消费动机*** **(important)** 满足客户某种需求，生理或者心理：
+  - ![image-20220424171817299](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220424171817299.png)
+- 消费行为：
+  - 购买次数，购买总金额，客单价，Recency etc.
+  - ![image-20220424172026203](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220424172026203.png)
+- 消费者行为模式随互联网的发展而变化：
+  - 从被动接受，到主动出击 (搜索引擎)
+  - interaction, share 用户之间相互传播
+
+
+
+---
+
 ### 消费特征分析：
+
+
 
 ### 用户分层与质量分析：
 
