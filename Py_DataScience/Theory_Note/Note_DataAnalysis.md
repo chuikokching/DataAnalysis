@@ -412,10 +412,11 @@ Z.B. ：创建电商用户画像
   - ![image-20220425175217372](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220425175217372.png)
   - ![image-20220425175328582](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220425175328582.png)
   - ![image-20220425174628635](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220425174628635.png)
-- 个体分析：
-  - 
+- 个体分析：**[14.7-14.8.ppt]**
+  - ![image-20220426123535083](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220426123535083.png)
 - 相关指标：
-  - 
+  - 人，货，场 **[营销推广类]**：
+  - ![image-20220426143351768](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220426143351768.png)
 
 
 
