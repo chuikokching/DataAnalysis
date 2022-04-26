@@ -9,7 +9,7 @@ import re
 
 host_server = 'smtp.163.com'
 #sender_163 = 'chuikokching@163.com'
-pwd = 'Xiaerdaren520'
+pwd = '**********'
 
 sender_163_mail = 'chuikokching@163.com'
 receiver = '455344883@qq.com'
