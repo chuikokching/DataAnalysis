@@ -400,7 +400,22 @@ Z.B. ：创建电商用户画像
 
 ---
 
+## 用户消费行为分析：
+
+![image-20220424193612931](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220424193612931.png)
+
+
+
 ### 消费特征分析：
+
+- 趋势分析：**[14.4趋势：时间序列, 14.5趋势：变量关系, 14.6趋势：时间偏好]**
+  - ![image-20220425175217372](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220425175217372.png)
+  - ![image-20220425175328582](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220425175328582.png)
+  - ![image-20220425174628635](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220425174628635.png)
+- 个体分析：
+  - 
+- 相关指标：
+  - 
 
 
 
