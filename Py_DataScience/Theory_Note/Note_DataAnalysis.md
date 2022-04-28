@@ -412,19 +412,134 @@ Z.B. ：创建电商用户画像
   - ![image-20220425175217372](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220425175217372.png)
   - ![image-20220425175328582](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220425175328582.png)
   - ![image-20220425174628635](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220425174628635.png)
+  
 - 个体分析：**[14.7-14.8.ppt]**
   - ![image-20220426123535083](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220426123535083.png)
+  
 - 相关指标：
   - 人，货，场 **[营销推广类]**：
+  
+  - ![image-20220428164124341](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220428164124341.png)
+  
+  - ![image-20220428164145208](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220428164145208.png)
+  
   - ![image-20220426143351768](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220426143351768.png)
+  
+  - ![image-20220428163110243](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220428163110243.png)
+  
+  - ```mysql
+    SELECT
+    	yr,
+    	mt,
+    	COUNT(
+    	IF
+    		(
+    			t1.orders > 1,
+    			t1.orders,
+    		NULL 
+    		) 
+    	) AS a,
+    	COUNT( t1.orders ) AS b, COUNT(
+    	IF
+    		(
+    			t1.orders > 1,
+    			t1.orders,
+    		NULL 
+    		) 
+    	) / COUNT( t1.orders )
+    FROM
+    	(
+    	SELECT YEAR
+    		( InvoiceDate ) AS yr,
+    		MONTH ( InvoiceDate ) AS mt,
+    		CustomerId,
+    		COUNT( DISTINCT InvoiceNo ) AS orders 
+    	FROM
+    		OnlineRetail 
+    	GROUP BY
+    		YEAR ( InvoiceDate ),
+    		MONTH ( InvoiceDate ),
+    		CustomerId 
+    	) AS t1 
+    GROUP BY
+    	yr,
+    	mt;
+    	(TIME,'%Y-%m')
+    ```
+  
+  - ![image-20220428163128663](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220428163128663.png)
+  
+  - ```mysql
+    SELECT DATE_FORMAT(m1,'%Y-%m'),COUNT(m1),COUNT(m2),COUNT(m2)/COUNT(m1) FROM
+    (SELECT CUSTOMERID,DATE_FORMAT(INVOICEDATE,'%Y-%m-01') as m1 FROM OnlineRetail 
+    -- WHERE DATE_FORMAT(INVOICEDATE,'%Y-%m') = '2011-01'
+    GROUP BY DATE_FORMAT(INVOICEDATE,'%Y-%m-01'),customerid) A 
+    LEFT JOIN
+    (SELECT CUSTOMERID,DATE_FORMAT(INVOICEDATE,'%Y-%m-01') as m2 FROM OnlineRetail 
+    -- WHERE DATE_FORMAT(INVOICEDATE,'%Y-%m') = '2011-02'
+    GROUP BY DATE_FORMAT(INVOICEDATE,'%Y-%m-01'),customerid) B 
+    ON A.CUSTOMERID = B.CUSTOMERID
+    AND m1 = DATE_SUB(m2,INTERVAL 1 MONTH)
+    GROUP BY m1;
+    ```
+  
+    
 
 
 
 ### 用户分层与质量分析：
 
+- ![image-20220428163159489](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220428163159489.png)
+
+- ```mysql
+  SELECT 
+  SUM(SALES)/9769872 AS '消费占比',
+  COUNT(us)/4372 AS '用户占比',
+  SUM(SALES)/COUNT(us) AS '客单价' FROM
+  (SELECT CUSTOMERID AS us,ROUND(SUM(UNITPRICE * QUANTITY),2) AS SALES
+  FROM OnlineRetail WHERE CustomerID IS NOT NULL 
+  GROUP BY CUSTOMERID 
+  ORDER BY SUM(UNITPRICE * QUANTITY) DESC LIMIT 874) T1;
+  -- 判断质量较低的xxx个用户他们的总消费金额/总消费金额(80%的用户贡献了20%销售额)SELECT 
+  
+  SELECT SUM(SALES)/9769872 AS '消费占比',
+  COUNT(us)/4372 AS '用户占比',
+  SUM(SALES)/COUNT(us) AS '客单价' FROM
+  (SELECT CUSTOMERID AS us,ROUND(SUM(UNITPRICE * QUANTITY),2) AS SALES
+  FROM OnlineRetail WHERE CustomerID IS NOT NULL
+  AND QUANTITY>0
+  GROUP BY CUSTOMERID 
+  ORDER BY SUM(UNITPRICE * QUANTITY) LIMIT 3000) T1;
+  ```
+
+- ![image-20220428163217134](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220428163217134.png)
+
+- ```mysql
+  SELECT CustomerID, AVG(gap) as 平均购买周期 FROM(
+  select CustomerID,time1,time2 ,datediff(time1,time2) AS gap 
+  from(
+  select
+  CustomerID,
+  InvoiceNo,
+  InvoiceDate as time1,
+  -- ROW_NUMBER() OVER(PARTITION BY CustomerID ORDER BY InvoiceDate) AS rank1,
+  LAG(InvoiceDate,1) OVER(PARTITION BY CustomerID) AS time2 --获取时间窗口，上下N行
+  from OnlineRetail 
+  WHERE CustomerID is not NULL
+  GROUP BY InvoiceNo,CustomerID,InvoiceDate)a)b
+  GROUP BY CustomerID HAVING AVG(gap) >0
+  ORDER BY AVG(gap); 
+  ```
 
 
-​			
+
+---
+
+
+
+
+
+​	
 
 
 
