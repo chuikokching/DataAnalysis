@@ -537,11 +537,20 @@ Z.B. ：创建电商用户画像
 
 
 
+# 预售销售额、调整运营策略
+
+### GMV(销售额): 
+
+- 设定企业与各部门KPI指标，并以此为目的分配资源
+
+- ![image-20220428165033789](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220428165033789.png)
+- ![image-20220428165234374](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220428165234374.png)
+- **拆解GMV：**
+- ![image-20220428171412827](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220428171412827.png)
 
 
-​	
 
+### GMV预测模型：
 
-
-
+- 
 
