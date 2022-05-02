@@ -537,7 +537,7 @@ Z.B. ：创建电商用户画像
 
 
 
-# 预售销售额、调整运营策略
+# 预测销售额、调整运营策略
 
 ### GMV(销售额): 
 
@@ -552,5 +552,28 @@ Z.B. ：创建电商用户画像
 
 ### GMV预测模型：
 
-- 
+- Excel: 数据建立图标，插入多项式回归；
+- Python回归分析：**[predictive_model.py]**
+  - ![image-20220501185824945](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220501185824945.png)
+  - 多项式回归模型：LinearRegression(), coef_, intercept_
+  - 可视化：趋势线，预测销售额
+  - 输出预测报告：**[案例9：预测2020天猫双11销售额.pptx]**
+
+
+
+
+
+### 商品分析：
+
+- 基于商品基础数据，销售数据，选品，销售，库存，市场，促销活动
+
+- ![image-20220502104406534](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220502104406534.png)
+- **商品常用指标：**
+  - ![image-20220502104553489](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220502104553489.png)
+  - ![image-20220502104832377](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220502104832377.png)
+  - ![image-20220502104907327](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220502104907327.png)
+- **层次分析法AHP：**
+  - 
+
+
 
