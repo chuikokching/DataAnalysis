@@ -33,7 +33,7 @@
 
 ###### 行业分析流程和方法：
 
-确立目标 -> 收集资料 -> 结构化分析 (**总量，细分，预测，竞争关系 (波特五力法)**) -> 内容呈现
+确立目标 -> 收集资料 -> **结构化分析** (**总量，细分，预测，竞争关系 (波特五力法)**) -> 内容呈现
 
 Z.B.: **直播电商**:
 
@@ -566,14 +566,18 @@ Z.B. ：创建电商用户画像
 ### 商品分析：
 
 - 基于商品基础数据，销售数据，选品，销售，库存，市场，促销活动
-
 - ![image-20220502104406534](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220502104406534.png)
 - **商品常用指标：**
   - ![image-20220502104553489](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220502104553489.png)
   - ![image-20220502104832377](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220502104832377.png)
   - ![image-20220502104907327](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220502104907327.png)
 - **层次分析法AHP：**
-  - 
+  - 应用场景：![image-20220503155745136](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220503155745136.png)
+  - **构建层次结构：**![image-20220503160213458](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220503160213458.png)
+  - **构建对比矩阵：** **[15.12成对比较矩阵.xlsx]**
+  - **方案判断矩阵：** **[15.13方案判断矩阵.xlsx]**
+  - **计算权重得分：** **[15.14总得分.xlsx]**
+
 
 
 
