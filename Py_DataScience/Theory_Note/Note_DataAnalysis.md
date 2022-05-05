@@ -1,3 +1,7 @@
+
+
+
+
 # 3. 互联网数据分析框架
 
 
@@ -68,6 +72,8 @@ Z.B.: **直播电商**:
 ### 数据指标体系
 
 ***
+
+#### [数据指标模型]
 
 #### 用户维度的分析模型：
 
@@ -282,10 +288,6 @@ Z.B. ：创建电商用户画像
   - 设计客户类型：如上图
 
 - 输出分析报告：**[12.15案例5：基于RFM的用户精细化管理.ppt]**
-
-
-
-
 
 
 
@@ -577,6 +579,79 @@ Z.B. ：创建电商用户画像
   - **构建对比矩阵：** **[15.12成对比较矩阵.xlsx]**
   - **方案判断矩阵：** **[15.13方案判断矩阵.xlsx]**
   - **计算权重得分：** **[15.14总得分.xlsx]**
+
+
+
+
+### 运营策略分析：
+
+- **运营**：以用户为中心，通过各种方式拉新，促活，提升留存与价值，以满足转化目标的一切行为活动
+  - 红包车：骑车发红包，达成用户增长，转化以及单车调配的目的
+  - ***基于业务需要设计采集的指标***
+- 如何策划一场运营活动：
+  - ![image-20220503191151379](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220503191151379.png)
+  - ![image-20220503191431637](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220503191431637.png)
+  - ![image-20220503191525845](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220503191525845.png)
+  - ![image-20220503191708870](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220503191708870.png)
+
+
+
+
+
+
+---
+
+
+
+# 基于数据驱动迭代产品设计
+
+### 数据产品经理职能：
+
+![image-20220505160443033](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220505160443033.png)
+
+
+
+### 促活，提升用户留存：
+
+- B.S.:大众点评：
+  - 普通会员，特殊会员：提供等级成长机制，等级越高，能获得更多优惠，更多实惠.
+- **用户活跃度分析模型 RFE：**
+  - **Recency:** 最近一次
+  - **Frequency:** 频率
+  - **Engagements (深度):** 浏览时间，商品数，播放，点赞，转发
+- RFE实例分析：**[16.3练习：RFE模型.xlsx]**
+- **用户存留，价值分析：**
+  - **Aha Moment**: 让用户第一时间发现产品的核心价值，提升用户留存率
+  - B.S.: Weibo，新用户自动关注up，自动加载资讯让用户进行交互
+  - 步骤：
+    - 提出假设：列举新用户可能出现的行为
+      - ![image-20220505182439302](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220505182439302.png)
+    - 分组验证：验证每个行为对留存率的影响
+      - ![image-20220505182707451](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220505182707451.png)
+    - 设计优化：对关键因素进行优化设计
+      - ![image-20220505182818657](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220505182818657.png)
+    - 因果测试：持续监测，明确关系
+      - ![image-20220505182917627](C:\Users\xu\AppData\Roaming\Typora\typora-user-images\image-20220505182917627.png)
+  - 用户留存率计算实例：3天，7天，10天，30天，60天，看消费日期 - 首次消费日期的结果落在哪一个区间 **[16.5练习：计算留存率.xlsx]**
+  - 用户生命周期计算实例：最后一次消费日期 - 第一次消费日期 **[16.6练习：计算用户生命周期.xlsx]**
+  - 案例分析PPT：**[案例8：基于电商的用户消费行为分析.xlsx]**
+
+
+
+
+
+### AB测试与功能迭代：
+
+
+
+
+
+
+
+
+
+
+
 
 
 
