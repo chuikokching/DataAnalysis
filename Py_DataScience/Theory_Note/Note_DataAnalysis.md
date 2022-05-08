@@ -659,12 +659,21 @@ Z.B. ：创建电商用户画像
 
 
 
+### 异常数据检测：
+
+- 基于**孤立森林算法** **(IsolationForest)**的异常检测：
+  - 利用随机性和特征表现进行划分
+  - 实例：**[Exception_Detection.py]**
+    - IsolationForest(), decision_function()[获取数据点的得分]
+    - 随机森林是有监督学习，孤立森林是无监督学习
 
 
 
 
 
+### 撰写数据报告：
 
+- 
 
 
 
